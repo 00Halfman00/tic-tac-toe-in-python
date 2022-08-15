@@ -1,6 +1,3 @@
-from os import system
-
-
 import os
 
 def invite():                                                                   # function to invite player/s to play
@@ -109,12 +106,11 @@ def player_move(players, board,):                                               
 def play_xo():                                                                  # function to initiate game, announce winner and ask to play again
     positions = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     game = invite()
-    if game:
+    while game:                                                                 # was an if condition, which didn't work right, now while loop is working well
         result = player_move(x_or_o(), positions)
         if result:
             print('\t\t  'f'Winner, winner: {result}\n\n')
+            game = invite()
+            print(game)
 
-        game = invite()
-
-
-play_xo()                                                                       # invoke function to run game
+play_xo()
